@@ -12,9 +12,9 @@ It utilizes the CrypTen framework, leveraging secret-sharing protocols to ensure
 ## Repository Structure
 This repository is organized as a monorepo for version control, though the components are intended to run on separate physical machines:
 
-'client/': Source code to be deployed on the Client machine.
+`client/` : Source code to be deployed on the Client machine.
 
-server/: Source code to be deployed on the Server machine.
+`server/` : Source code to be deployed on the Server machine.
 
 
 Inside each machine's code base (we suggest naming the folders "xai" on each machine instead of the given "client"/"server".), there should be
@@ -39,12 +39,7 @@ Both: Ensure the models/ and data/ folders are present on both machines.
 Both machines should use a consistent environment (e.g., myenv). Navigate to your working directory on each machine and run:
 
 <bash>
-```
-pip install -r requirements.txt
-```
-
-<bash>
-  pip install 
+  pip install -r requirements.txt
   
 ### 3. Network & Interface Configuration
 The machines must be synchronized via two shell scripts before execution:
