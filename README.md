@@ -1,4 +1,4 @@
-**SecGrad-XAI: Secure and Accurate Explainable AI**
+# **SecGrad-XAI: Secure and Accurate Explainable AI**
 
 This repository contains the official implementation for "SecGrad-XAI: Secure and Accurate Explainable AI 
 with Secure Multi-Party Image Classification", published in the proceedings of the EICC'26 conference.
