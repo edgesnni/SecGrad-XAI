@@ -16,12 +16,12 @@ This repository is organized as a monorepo for version control, though the compo
 
 `server/` : Source code to be deployed on the Server machine.
 
-
-Inside each machine's code base (we suggest naming the folders "xai" on each machine instead of the given "client"/"server".), there should be
+Inside each machine's code base (we suggest naming the folders `xai` on each machine instead of the given `client`/`server`.), there should be
 two additional folders:
 
-models/: Directory for trained neural network models (.pth files).
-data/: Directory for inference datasets (only the test datasets are necessary post-training).
+`models/`: Directory for trained neural network models (.pth files).
+
+`data/`: Directory for inference datasets (only the test datasets are necessary post-training).
 
 ## Deployment & Setup
 
@@ -29,30 +29,31 @@ data/: Directory for inference datasets (only the test datasets are necessary po
 
 Because this is an MPC-based protocol, the code must be distributed across two distinct environments:
 
-On the Client Machine: Copy the contents of the client/ folder into your working directory.
+On the Client Machine: Copy the contents of the `client/` folder into your working directory.
 
-On the Server Machine: Copy the contents of the server/ folder into your working directory.
+On the Server Machine: Copy the contents of the `server/` folder into your working directory.
 
-Both: Ensure the models/ and data/ folders are present on both machines.
+Both: Ensure the `models/` and `data/` folders are present on both machines.
 
 ### 2. Environment Initialization
 Both machines should use a consistent environment (e.g., myenv). Navigate to your working directory on each machine and run:
 
 <bash>
   pip install -r requirements.txt
-  
+</bash>
+
 ### 3. Network & Interface Configuration
 The machines must be synchronized via two shell scripts before execution:
 
-common.sh: Both machines must specify the Server's IP address and use an identical Gloo socket name (GLOO_SOCKET_IFNAME) to establish the CrypTen backend.
+`common.sh`: Both machines must specify the Server's IP address and use an identical Gloo socket name (GLOO_SOCKET_IFNAME) to establish the CrypTen backend.
 
-throttle.sh: Both machines must set the DEV= variable to the correct network interface used for communication.
+`throttle.sh`: Both machines must set the DEV= variable to the correct network interface used for communication.
 
 ## Execution Flow
 The framework requires a specific "Server-First" startup sequence.
 
 ### Step 1: Parameter Selection
-Ensure the following parameters are identical in the run.sh files on both machines:
+Ensure the following parameters are identical in the `run.sh` files on both machines:
 
 -MODEL= (Neural Network Architecture)
 -DATASET= (ML task)
@@ -60,18 +61,20 @@ Ensure the following parameters are identical in the run.sh files on both machin
 -MODE= (whether to perform plaintext inference with XAI, or all in SNNI secure mode.)
 -INFERENCE= (whether to do inference on one image or the whole testset)
 
-Note: The client's run.sh contains additional parameters. The server's version is intentionally limited to ensure specific inference decisions and parameters remain confidential from the server.
+Note: The client's `run.sh` contains additional parameters. The server's version is intentionally limited to ensure specific inference decisions and parameters remain confidential from the server.
 
 ### Step 2: Run the Server
 On the server machine:
-
-Bash
+<bash>
   ./run.sh
-Step 3: Run the Client
+</bash>
+  
+### Step 3: Run the Client
 On the client machine:
-
-Bash
+<bash>
   ./run.sh
+</bash>
 
 ## Citation
+
 If you use this code in your research, please cite our EICC'26 paper
