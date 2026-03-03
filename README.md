@@ -56,9 +56,13 @@ The framework requires a specific "Server-First" startup sequence.
 Ensure the following parameters are identical in the `run.sh` files on both machines:
 
 -MODEL= (Neural Network Architecture)
+
 -DATASET= (ML task)
+
 -X_METHOD= (name of the gradient-based XAI method to use)
+
 -MODE= (whether to perform plaintext inference with XAI, or all in SNNI secure mode.)
+
 -INFERENCE= (whether to do inference on one image or the whole testset)
 
 Note: The client's `run.sh` contains additional parameters. The server's version is intentionally limited to ensure specific inference decisions and parameters remain confidential from the server.
