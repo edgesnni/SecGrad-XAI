@@ -1,4 +1,5 @@
-SecGrad-XAI: Secure and Accurate Explainable AI
+**SecGrad-XAI: Secure and Accurate Explainable AI**
+
 This repository contains the official implementation for "SecGrad-XAI: Secure and Accurate Explainable AI 
 with Secure Multi-Party Image Classification", published in the proceedings of the EICC'26 conference.
 
@@ -8,7 +9,7 @@ Figure 1: Overview of the SecGrad-XAI framework for gradient-based explanations 
 SecGrad-XAI is a framework designed to enable gradient-based explanations (XAI) during Secure Neural Network Inference (SNNI). 
 It utilizes the CrypTen framework, leveraging secret-sharing protocols to ensure privacy during both the inference and explanation phases.
 
-Repository Structure
+**Repository Structure**
 This repository is organized as a monorepo for version control, though the components are intended to run on separate physical machines:
 
 client/: Source code to be deployed on the Client machine.
@@ -22,7 +23,7 @@ two additional folders:
 models/: Directory for trained neural network models (.pth files).
 data/: Directory for inference datasets (only the test datasets are necessary post-training).
 
-Deployment & Setup
+**Deployment & Setup**
 1. File Distribution
 Because this is an MPC-based protocol, the code must be distributed across two distinct environments:
 
@@ -44,19 +45,17 @@ common.sh: Both machines must specify the Server's IP address and use an identic
 
 throttle.sh: Both machines must set the DEV= variable to the correct network interface used for communication.
 
-Execution Flow
+**Execution Flow**
 The framework requires a specific "Server-First" startup sequence.
 
 Step 1: Parameter Selection
 Ensure the following parameters are identical in the run.sh files on both machines:
 
-Neural Network Architecture
-
-Dataset
-
-Mode (plaintext or secure)
-
-XAI Method
+-MODEL= (Neural Network Architecture)
+-DATASET= (ML task)
+-X_METHOD= (name of the gradient-based XAI method to use)
+-MODE= (whether to perform plaintext inference with XAI, or all in SNNI secure mode.)
+-INFERENCE= (whether to do inference on one image or the whole testset)
 
 Note: The client's run.sh contains additional parameters. The server's version is intentionally limited to ensure specific inference decisions and parameters remain confidential from the server.
 
@@ -64,11 +63,12 @@ Step 2: Run the Server
 On the server machine:
 
 Bash
-./run.sh
+  ./run.sh
 Step 3: Run the Client
 On the client machine:
 
 Bash
-./run.sh
+  ./run.sh
+
 Citation
 If you use this code in your research, please cite our EICC'26 paper
