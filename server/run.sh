@@ -1,10 +1,9 @@
 #!/bin/bash
 
-DATASET="Tiny Imagenet" #("MNIST" "Tiny Imagenet" "Imagenet")
-MODEL="AlexNet" # ("AlexNet" "VGG11" "VGG19" "AliceNet")
-X_METHOD="vanilla" # "vanilla" "xinput" "integrated"  #  "CAM" # "LRP"
-MODE="secure" #  "plaintext" "secure"
-
+DATASET="" #"MNIST" "Tiny Imagenet" "Imagenet"
+MODEL="" # "AlexNet" "VGG11" "VGG19" "AliceNet"
+X_METHOD="" # "vanilla" "xinput" "integrated"  #  "CAM" # "LRP"
+MODE="secure" 
 
 
 if [ "$MODE" == "secure" ]; then
